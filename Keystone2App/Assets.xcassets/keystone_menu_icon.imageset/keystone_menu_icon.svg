@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Keystone2 Menu Bar Icon</title>
+  <circle cx="12" cy="12" r="1.8" fill="currentColor"/>
+  <line x1="12" y1="4.8" x2="12" y2="8.0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="12" y1="16.0" x2="12" y2="19.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="4.8" y1="12" x2="8.0" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <line x1="16.0" y1="12" x2="19.2" y2="12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

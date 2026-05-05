@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		03AB0F92E40844B7A2E8DA42 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0842E85C204F97AA244E3D /* AppState.swift */; };
+		0C2B3C4D5E6F7A8B9C0D1E2F /* OCRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C1A2B3C4D5E6F7A8B9C0D1E /* OCRManager.swift */; };
+		19E168318C73514FA61BEEB5 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5076601F82DD614A86BE9F08 /* StatusBarController.swift */; };
+		1A2B3C4D5E6F7A8B9C0D1E2F /* ScreenAnnotationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3B4C5D6E7F8A9B0C1D2E3F /* ScreenAnnotationManager.swift */; };
+		3A4B5C6D7E8F9A0B1C2D3E4F /* ScreenAnnotationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B6C7D8E9F0A1B2C3D4E5F /* ScreenAnnotationWindowController.swift */; };
+		46795E6C2BF84E2EBE991B48 /* StatusBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF32C9B73B344588744E9DC /* StatusBarPresenter.swift */; };
+		4FA0D3C72547605A4D00EAC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74238D72745E1B17687F2A2 /* AppDelegate.swift */; };
+		53795D33B2A513743D417C31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B0EE00AF31E305180B1186 /* Assets.xcassets */; };
+		5A6B7C8D9E0F1A2B3C4D5E6F /* ScreenAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7B8C9D0E1F2A3B4C5D6E7F /* ScreenAnnotationView.swift */; };
+		5D98A2F98E1B4A1BB6CE4301 /* PinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98A2F98E1B4A1BB6CE4300 /* PinManager.swift */; };
+		7A8B9C0D1E2F3A4B5C6D7E8F /* AnnotationToolbarWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9B0C1D2E3F4A5B6C7D8E9F /* AnnotationToolbarWindowController.swift */; };
+		7DBAD79267D840719B3123DB /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DFAC1BA7EB4541B969E582 /* SettingsWindowController.swift */; };
+		887DE50DF12B28E84755C5BC /* Keystone2AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6085943A94B7A697FE51B854 /* Keystone2AppApp.swift */; };
+		9C8D7E6F5A4B3C2D1E0F9A8B /* HotkeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7C6D5E4F3A2B1C0D9E8F7A /* HotkeyStore.swift */; };
+		9E4115EA04D3C13EB7D1B246 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A7C22450493EEDBD8164905 /* SettingsView.swift */; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* BreakTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A6B7C8D9E0F1A2 /* BreakTimer.swift */; };
+		AA1B2C3D4E5F6A7B8C9D0E1F /* LaunchAtLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2C3D4E5F6A7B8C9D0E1F2A /* LaunchAtLoginManager.swift */; };
+		B8C9D0E1F2A3B4C5D6E7F8A9 /* ScreenshotManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B8C9D0E1F2A3B4C5D6E7F8 /* ScreenshotManager.swift */; };
+		BB8F2B0C0E1D4B91A7C62501 /* PinWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F2B0C0E1D4B91A7C62500 /* PinWindowController.swift */; };
+		C3D4E5F6A7B8C9D0E1F2A3B4 /* ScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C9D0E1F2A3B4C5 /* ScrollManager.swift */; };
+		C7194A5A37E84E3CA9B0B601 /* InlineScreenshotEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7194A5A37E84E3CA9B0B600 /* InlineScreenshotEditorView.swift */; };
+		CF2B3C4D5E6F7A8B9C0D1E2F /* CaptureFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A2B3C4D5E6F7A8B9C0D1E /* CaptureFlowCoordinator.swift */; };
+		D5AAD4543B9B4243B2BDDA62 /* AnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5F0EB936C41ABA7570E26 /* AnnotationModel.swift */; };
+		E5DEA20F771A501F07DE6419 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D34C202BA403254C4F4F8D0 /* PermissionsManager.swift */; };
+		E5F6A7B8C9D0E1F2A3B4C5D6 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A7B8C9D0E1F2A3B4C5D6E7 /* HotkeyManager.swift */; };
+		F2E1D0C9B8A7F6E5D4C3B2A1 /* BreakDisplayTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B3C4D5E6F7A8B9C0D1E2F3 /* BreakDisplayTimer.swift */; };
+		F338434E8C49499B93CE9974 /* ScreenshotOverlayWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842AC85D5A1141ADA2124E58 /* ScreenshotOverlayWindowController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0BF32C9B73B344588744E9DC /* StatusBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarPresenter.swift; sourceTree = "<group>"; };
+		0C1A2B3C4D5E6F7A8B9C0D1E /* OCRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRManager.swift; sourceTree = "<group>"; };
+		126C34F7B23EFC19B4302EF4 /* Keystone2App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Keystone2App.entitlements; sourceTree = "<group>"; };
+		27AB5FAE99E8C8E34B15D3EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A3B4C5D6E7F8A9B0C1D2E3F /* ScreenAnnotationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAnnotationManager.swift; sourceTree = "<group>"; };
+		30B0EE00AF31E305180B1186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D34C202BA403254C4F4F8D0 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
+		4875BF9D14C1DD3C850217BB /* Keystone2App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Keystone2App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5B6C7D8E9F0A1B2C3D4E5F /* ScreenAnnotationWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAnnotationWindowController.swift; sourceTree = "<group>"; };
+		5076601F82DD614A86BE9F08 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		5D98A2F98E1B4A1BB6CE4300 /* PinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinManager.swift; sourceTree = "<group>"; };
+		6085943A94B7A697FE51B854 /* Keystone2AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystone2AppApp.swift; sourceTree = "<group>"; };
+		6A7B8C9D0E1F2A3B4C5D6E7F /* ScreenAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenAnnotationView.swift; sourceTree = "<group>"; };
+		842AC85D5A1141ADA2124E58 /* ScreenshotOverlayWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotOverlayWindowController.swift; sourceTree = "<group>"; };
+		8A9B0C1D2E3F4A5B6C7D8E9F /* AnnotationToolbarWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationToolbarWindowController.swift; sourceTree = "<group>"; };
+		8B7C6D5E4F3A2B1C0D9E8F7A /* HotkeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyStore.swift; sourceTree = "<group>"; };
+		9A7C22450493EEDBD8164905 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9BD5F0EB936C41ABA7570E26 /* AnnotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationModel.swift; sourceTree = "<group>"; };
+		A2B3C4D5E6F7A8B9C0D1E2F3 /* BreakDisplayTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakDisplayTimer.swift; sourceTree = "<group>"; };
+		A7B8C9D0E1F2A3B4C5D6E7F8 /* ScreenshotManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotManager.swift; sourceTree = "<group>"; };
+		B1C2D3E4F5A6B7C8D9E0F1A2 /* BreakTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimer.swift; sourceTree = "<group>"; };
+		BB2C3D4E5F6A7B8C9D0E1F2A /* LaunchAtLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLoginManager.swift; sourceTree = "<group>"; };
+		BB8F2B0C0E1D4B91A7C62500 /* PinWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinWindowController.swift; sourceTree = "<group>"; };
+		BE0842E85C204F97AA244E3D /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		C7194A5A37E84E3CA9B0B600 /* InlineScreenshotEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineScreenshotEditorView.swift; sourceTree = "<group>"; };
+		C74238D72745E1B17687F2A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CF1A2B3C4D5E6F7A8B9C0D1E /* CaptureFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFlowCoordinator.swift; sourceTree = "<group>"; };
+		D4E5F6A7B8C9D0E1F2A3B4C5 /* ScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollManager.swift; sourceTree = "<group>"; };
+		E8DFAC1BA7EB4541B969E582 /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		F6A7B8C9D0E1F2A3B4C5D6E7 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8558E46EB0E32DEF5BEAC420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B470FDE8C07CAACD473F8B5 = {
+			isa = PBXGroup;
+			children = (
+				CED178D4E1A3507719119BE2 /* Keystone2App */,
+				A2685D3DB901D0C8C528D655 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A2685D3DB901D0C8C528D655 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4875BF9D14C1DD3C850217BB /* Keystone2App.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED178D4E1A3507719119BE2 /* Keystone2App */ = {
+			isa = PBXGroup;
+			children = (
+				6085943A94B7A697FE51B854 /* Keystone2AppApp.swift */,
+				C74238D72745E1B17687F2A2 /* AppDelegate.swift */,
+				5076601F82DD614A86BE9F08 /* StatusBarController.swift */,
+				9A7C22450493EEDBD8164905 /* SettingsView.swift */,
+				3D34C202BA403254C4F4F8D0 /* PermissionsManager.swift */,
+				9BD5F0EB936C41ABA7570E26 /* AnnotationModel.swift */,
+				E8DFAC1BA7EB4541B969E582 /* SettingsWindowController.swift */,
+				842AC85D5A1141ADA2124E58 /* ScreenshotOverlayWindowController.swift */,
+				C7194A5A37E84E3CA9B0B600 /* InlineScreenshotEditorView.swift */,
+				BB8F2B0C0E1D4B91A7C62500 /* PinWindowController.swift */,
+				5D98A2F98E1B4A1BB6CE4300 /* PinManager.swift */,
+				BE0842E85C204F97AA244E3D /* AppState.swift */,
+				0BF32C9B73B344588744E9DC /* StatusBarPresenter.swift */,
+				B1C2D3E4F5A6B7C8D9E0F1A2 /* BreakTimer.swift */,
+				A2B3C4D5E6F7A8B9C0D1E2F3 /* BreakDisplayTimer.swift */,
+				D4E5F6A7B8C9D0E1F2A3B4C5 /* ScrollManager.swift */,
+				F6A7B8C9D0E1F2A3B4C5D6E7 /* HotkeyManager.swift */,
+				8B7C6D5E4F3A2B1C0D9E8F7A /* HotkeyStore.swift */,
+				BB2C3D4E5F6A7B8C9D0E1F2A /* LaunchAtLoginManager.swift */,
+				A7B8C9D0E1F2A3B4C5D6E7F8 /* ScreenshotManager.swift */,
+				CF1A2B3C4D5E6F7A8B9C0D1E /* CaptureFlowCoordinator.swift */,
+				0C1A2B3C4D5E6F7A8B9C0D1E /* OCRManager.swift */,
+				2A3B4C5D6E7F8A9B0C1D2E3F /* ScreenAnnotationManager.swift */,
+				4A5B6C7D8E9F0A1B2C3D4E5F /* ScreenAnnotationWindowController.swift */,
+				6A7B8C9D0E1F2A3B4C5D6E7F /* ScreenAnnotationView.swift */,
+				8A9B0C1D2E3F4A5B6C7D8E9F /* AnnotationToolbarWindowController.swift */,
+				30B0EE00AF31E305180B1186 /* Assets.xcassets */,
+				27AB5FAE99E8C8E34B15D3EF /* Info.plist */,
+				126C34F7B23EFC19B4302EF4 /* Keystone2App.entitlements */,
+			);
+			path = Keystone2App;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D97445290F55B319C1857E3 /* Keystone2App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9768E5580FE6406F9811A28B /* Build configuration list for PBXNativeTarget "Keystone2App" */;
+			buildPhases = (
+				8B565DA49484A04A4E9E373E /* Sources */,
+				8558E46EB0E32DEF5BEAC420 /* Frameworks */,
+				737906F76CF980BC083AEF80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Keystone2App;
+			productName = Keystone2App;
+			productReference = 4875BF9D14C1DD3C850217BB /* Keystone2App.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		681324A8C62DAE0930CE60E2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					2D97445290F55B319C1857E3 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = 94C706C8F57089A443D741D7 /* Build configuration list for PBXProject "Keystone2App" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = zh_Hans;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				zh_Hans,
+				en,
+				Base,
+			);
+			mainGroup = 4B470FDE8C07CAACD473F8B5;
+			productRefGroup = A2685D3DB901D0C8C528D655 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D97445290F55B319C1857E3 /* Keystone2App */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		737906F76CF980BC083AEF80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53795D33B2A513743D417C31 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B565DA49484A04A4E9E373E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				887DE50DF12B28E84755C5BC /* Keystone2AppApp.swift in Sources */,
+				4FA0D3C72547605A4D00EAC3 /* AppDelegate.swift in Sources */,
+				19E168318C73514FA61BEEB5 /* StatusBarController.swift in Sources */,
+				9E4115EA04D3C13EB7D1B246 /* SettingsView.swift in Sources */,
+				E5DEA20F771A501F07DE6419 /* PermissionsManager.swift in Sources */,
+				D5AAD4543B9B4243B2BDDA62 /* AnnotationModel.swift in Sources */,
+				F338434E8C49499B93CE9974 /* ScreenshotOverlayWindowController.swift in Sources */,
+				C7194A5A37E84E3CA9B0B601 /* InlineScreenshotEditorView.swift in Sources */,
+				BB8F2B0C0E1D4B91A7C62501 /* PinWindowController.swift in Sources */,
+				5D98A2F98E1B4A1BB6CE4301 /* PinManager.swift in Sources */,
+				03AB0F92E40844B7A2E8DA42 /* AppState.swift in Sources */,
+				7DBAD79267D840719B3123DB /* SettingsWindowController.swift in Sources */,
+				46795E6C2BF84E2EBE991B48 /* StatusBarPresenter.swift in Sources */,
+				A1B2C3D4E5F6A7B8C9D0E1F2 /* BreakTimer.swift in Sources */,
+				F2E1D0C9B8A7F6E5D4C3B2A1 /* BreakDisplayTimer.swift in Sources */,
+				C3D4E5F6A7B8C9D0E1F2A3B4 /* ScrollManager.swift in Sources */,
+				E5F6A7B8C9D0E1F2A3B4C5D6 /* HotkeyManager.swift in Sources */,
+				9C8D7E6F5A4B3C2D1E0F9A8B /* HotkeyStore.swift in Sources */,
+				AA1B2C3D4E5F6A7B8C9D0E1F /* LaunchAtLoginManager.swift in Sources */,
+				B8C9D0E1F2A3B4C5D6E7F8A9 /* ScreenshotManager.swift in Sources */,
+				CF2B3C4D5E6F7A8B9C0D1E2F /* CaptureFlowCoordinator.swift in Sources */,
+				0C2B3C4D5E6F7A8B9C0D1E2F /* OCRManager.swift in Sources */,
+				1A2B3C4D5E6F7A8B9C0D1E2F /* ScreenAnnotationManager.swift in Sources */,
+				3A4B5C6D7E8F9A0B1C2D3E4F /* ScreenAnnotationWindowController.swift in Sources */,
+				5A6B7C8D9E0F1A2B3C4D5E6F /* ScreenAnnotationView.swift in Sources */,
+				7A8B9C0D1E2F3A4B5C6D7E8F /* AnnotationToolbarWindowController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6C5ACE84C2984D48204D223C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		81735733CD55D8D20334704D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Keystone2App/Keystone2App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Keystone2App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keystone.keystone2;
+				PRODUCT_NAME = Keystone2;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		AB453E0327148CB56D341F4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AE4D5E1F620B4E0645717C07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Keystone2App/Keystone2App.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Keystone2App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.keystone.keystone2;
+				PRODUCT_NAME = Keystone2;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94C706C8F57089A443D741D7 /* Build configuration list for PBXProject "Keystone2App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB453E0327148CB56D341F4A /* Debug */,
+				6C5ACE84C2984D48204D223C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9768E5580FE6406F9811A28B /* Build configuration list for PBXNativeTarget "Keystone2App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE4D5E1F620B4E0645717C07 /* Debug */,
+				81735733CD55D8D20334704D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 681324A8C62DAE0930CE60E2 /* Project object */;
+}

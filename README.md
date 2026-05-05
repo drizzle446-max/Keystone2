@@ -23,6 +23,14 @@ Keystone2 是一款 macOS 菜单栏工具，聚合个人高频实用功能：截
 
 ---
 
+## 安装
+
+**直接下载**：在 [Releases](https://github.com/drizzle446-max/Keystone2/releases) 页面下载 `Keystone2.zip`，解压后将 `Keystone2.app` 拖入「应用程序」文件夹。
+
+> **打不开 App？** 右键点击 `Keystone2.app` → 选择「打开」→ 在弹出对话框中点击「打开」。或前往「系统设置 → 隐私与安全性」，点击「仍要打开」。
+
+---
+
 ## 环境要求
 
 - macOS 14.0+

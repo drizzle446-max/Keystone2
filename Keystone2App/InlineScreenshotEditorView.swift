@@ -176,14 +176,7 @@ private final class InlineAnnotationCanvasView: NSView, NSTextFieldDelegate {
     }
 
     private func drawArrow(from s: CGPoint, to e: CGPoint, color: NSColor, lw: CGFloat) {
-        guard let ctx = NSGraphicsContext.current?.cgContext else { return }
-        ctx.setStrokeColor(color.cgColor); ctx.setFillColor(color.cgColor); ctx.setLineWidth(lw); ctx.setLineCap(.round)
-        ctx.beginPath(); ctx.move(to: s); ctx.addLine(to: e); ctx.strokePath()
-        let a = atan2(e.y - s.y, e.x - s.x); let hl: CGFloat = 14; let sp: CGFloat = .pi / 7
-        ctx.beginPath(); ctx.move(to: e)
-        ctx.addLine(to: CGPoint(x: e.x - hl * cos(a - sp), y: e.y - hl * sin(a - sp)))
-        ctx.addLine(to: CGPoint(x: e.x - hl * cos(a + sp), y: e.y - hl * sin(a + sp)))
-        ctx.closePath(); ctx.fillPath()
+        AnnotationDrawing.drawSolidArrow(from: s, to: e, color: color, lineWidth: lw)
     }
 
     // MARK: - Selection handles (always visible)
@@ -255,8 +248,6 @@ final class InlineScreenshotEditorView: NSView {
     private let canvasView: InlineAnnotationCanvasView
     private let toolbarView = NSView()
     private var toolButtons: [AnnotationKind: NSButton] = [:]
-    private var undoButton: NSButton!
-    private var redoButton: NSButton!
 
     var onCopy: ((NSImage) -> Void)?
     var onSave: ((NSImage) -> Void)?
@@ -275,12 +266,10 @@ final class InlineScreenshotEditorView: NSView {
         wantsLayer = true
         addSubview(canvasView)
         buildToolbar()
-        canvasView.onChange = { [weak self] in self?.syncButtons() }
         canvasView.onCancel = { [weak self] in self?.onCancel?() }
         canvasView.onSelectionChanged = { [weak self] newRect in
             self?.applySelectionChange(newRect)
         }
-        syncButtons()
     }
 
     required init?(coder: NSCoder) { fatalError() }
@@ -288,7 +277,7 @@ final class InlineScreenshotEditorView: NSView {
     override func keyDown(with event: NSEvent) {
         if event.modifierFlags.contains(.command), event.charactersIgnoringModifiers?.lowercased() == "z" {
             if event.modifierFlags.contains(.shift) { canvasView.redo() } else { canvasView.undo() }
-            syncButtons(); return
+            return
         }
         if event.keyCode == 53 { onCancel?() }
         else if event.keyCode == 36 || event.keyCode == 76 { pinImage() }
@@ -336,12 +325,9 @@ final class InlineScreenshotEditorView: NSView {
             ("箭头", #selector(selectArrow), .arrow),
             ("画笔", #selector(selectPen), .pen),
             ("文字", #selector(selectText), .text),
-            ("撤销", #selector(undo), nil),
-            ("重做", #selector(redo), nil),
-            ("复制", #selector(copyImage), nil),
-            ("保存", #selector(saveImage), nil),
             ("钉图", #selector(pinImage), nil),
-            ("取消", #selector(cancel), nil)
+            ("保存", #selector(saveImage), nil),
+            ("复制", #selector(copyImage), nil)
         ]
 
         var x: CGFloat = 8
@@ -354,15 +340,13 @@ final class InlineScreenshotEditorView: NSView {
             b.frame = NSRect(x: x, y: 5, width: max(b.frame.width, 44), height: 24)
             toolbarView.addSubview(b)
             if let tool = item.2 { toolButtons[tool] = b }
-            if item.0 == "撤销" { undoButton = b }
-            if item.0 == "重做" { redoButton = b }
             x += b.frame.width + 6
         }
         let w = x + 2
         let yBelow = selectionRect.minY - height - 8
         let yAbove = selectionRect.maxY + 8
         let ty = yBelow >= 8 ? yBelow : min(bounds.maxY - height - 8, yAbove)
-        let tx = min(max(selectionRect.minX, 8), bounds.maxX - w - 8)
+        let tx = toolbarX(width: w)
         toolbarView.frame = NSRect(x: tx, y: ty, width: w, height: height)
         addSubview(toolbarView)
         selectTool(.rectangle)
@@ -374,8 +358,13 @@ final class InlineScreenshotEditorView: NSView {
         let yBelow = selectionRect.minY - height - 8
         let yAbove = selectionRect.maxY + 8
         let ty = yBelow >= 8 ? yBelow : min(bounds.maxY - height - 8, yAbove)
-        let tx = min(max(selectionRect.minX, 8), bounds.maxX - w - 8)
+        let tx = toolbarX(width: w)
         toolbarView.setFrameOrigin(NSPoint(x: tx, y: ty))
+    }
+
+    private func toolbarX(width: CGFloat) -> CGFloat {
+        let rightAligned = selectionRect.maxX - width
+        return min(max(rightAligned, 8), bounds.maxX - width - 8)
     }
 
     private func selectTool(_ tool: AnnotationKind) {
@@ -384,17 +373,10 @@ final class InlineScreenshotEditorView: NSView {
         window?.makeFirstResponder(canvasView)
     }
 
-    private func syncButtons() {
-        undoButton?.isEnabled = canvasView.canUndo
-        redoButton?.isEnabled = canvasView.canRedo
-    }
-
     @objc private func selectRectangle() { selectTool(.rectangle) }
     @objc private func selectArrow() { selectTool(.arrow) }
     @objc private func selectPen() { selectTool(.pen) }
     @objc private func selectText() { selectTool(.text) }
-    @objc private func undo() { canvasView.undo(); syncButtons() }
-    @objc private func redo() { canvasView.redo(); syncButtons() }
     @objc private func copyImage() { onCopy?(canvasView.renderedImage()) }
     @objc private func saveImage() { onSave?(canvasView.renderedImage()) }
     @objc private func pinImage() {
@@ -406,5 +388,4 @@ final class InlineScreenshotEditorView: NSView {
         )
         onPin?(canvasView.renderedImage(), screenFrame)
     }
-    @objc private func cancel() { onCancel?() }
 }

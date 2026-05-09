@@ -151,7 +151,7 @@ final class ScreenshotManager {
 
         let panel = NSSavePanel()
         panel.allowedContentTypes = [.png]
-        panel.nameFieldStringValue = "screenshot.png"
+        panel.nameFieldStringValue = Self.defaultScreenshotFileName()
         NSApp.activate(ignoringOtherApps: true)
         panel.begin { result in
             guard result == .OK, let url = panel.url else { return }
@@ -160,6 +160,13 @@ final class ScreenshotManager {
                 try data.write(to: url)
             } catch { }
         }
+    }
+
+    private static func defaultScreenshotFileName(date: Date = Date()) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyyMMddHHmmss"
+        return "screenshot_\(formatter.string(from: date))"
     }
 
     private func finishInlinePin(_ image: NSImage, pinFrame: NSRect) {

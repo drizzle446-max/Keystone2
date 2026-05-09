@@ -1,6 +1,5 @@
 import AppKit
 import SwiftUI
-import UserNotifications
 
 enum PermissionStatus {
     case granted, denied, unknown
@@ -9,7 +8,7 @@ enum PermissionStatus {
         switch self {
         case .granted: return "已授权"
         case .denied:  return "已拒绝"
-        case .unknown: return "未检测"
+        case .unknown: return "未设置"
         }
     }
 
@@ -17,7 +16,7 @@ enum PermissionStatus {
         switch self {
         case .granted: return .green
         case .denied:  return .red
-        case .unknown: return .yellow
+        case .unknown: return Color(nsColor: .tertiaryLabelColor)
         }
     }
 }
@@ -31,7 +30,6 @@ class PermissionsManager: ObservableObject {
 
     @Published var screenRecording: PermissionStatus = .unknown
     @Published var accessibility: PermissionStatus = .unknown
-    @Published var notifications: PermissionStatus = .unknown
 
     private var shownAlertKeys = Set<String>()
 
@@ -40,16 +38,6 @@ class PermissionsManager: ObservableObject {
 
         let opts = [kAXTrustedCheckOptionPrompt.takeUnretainedValue(): false] as CFDictionary
         accessibility = AXIsProcessTrustedWithOptions(opts) ? .granted : .denied
-
-        UNUserNotificationCenter.current().getNotificationSettings { [weak self] settings in
-            DispatchQueue.main.async {
-                switch settings.authorizationStatus {
-                case .authorized, .provisional: self?.notifications = .granted
-                case .denied:                   self?.notifications = .denied
-                default:                        self?.notifications = .unknown
-                }
-            }
-        }
     }
 
     func showScreenRecordingAlertIfNeeded(feature: String) {
@@ -75,15 +63,6 @@ class PermissionsManager: ObservableObject {
         let trusted = AXIsProcessTrustedWithOptions(opts)
         checkPermissions()
         return trusted
-    }
-
-    func showNotificationPermissionAlertIfNeeded() {
-        showPermissionAlertIfNeeded(
-            key: "notifications-break",
-            title: "休息提醒需要通知权限",
-            message: "Keystone2 的菜单栏休息状态仍会工作，但系统通知不会弹出。请到「系统设置 > 通知」中允许 Keystone2 通知。",
-            settingsURL: "x-apple.systempreferences:com.apple.Notifications-Settings.extension"
-        )
     }
 
     private func showPermissionAlertIfNeeded(key: String, title: String, message: String, settingsURL: String) {

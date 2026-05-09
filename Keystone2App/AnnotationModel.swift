@@ -86,3 +86,53 @@ extension NSImage {
         return rep.representation(using: .png, properties: [:])
     }
 }
+
+enum AnnotationDrawing {
+    static func drawSolidArrow(from start: CGPoint,
+                               to end: CGPoint,
+                               color: NSColor,
+                               lineWidth: CGFloat) {
+        guard let ctx = NSGraphicsContext.current?.cgContext else { return }
+        let dx = end.x - start.x
+        let dy = end.y - start.y
+        let length = hypot(dx, dy)
+        guard length > 1 else { return }
+
+        let angle = atan2(dy, dx)
+        let headLength = max(lineWidth * 6, 18)
+        let headWidth = max(lineWidth * 4.5, 14)
+        let shaftEnd = CGPoint(
+            x: end.x - headLength * 0.72 * cos(angle),
+            y: end.y - headLength * 0.72 * sin(angle)
+        )
+        let halfWidth = headWidth / 2
+        let left = CGPoint(
+            x: shaftEnd.x + halfWidth * cos(angle + .pi / 2),
+            y: shaftEnd.y + halfWidth * sin(angle + .pi / 2)
+        )
+        let right = CGPoint(
+            x: shaftEnd.x + halfWidth * cos(angle - .pi / 2),
+            y: shaftEnd.y + halfWidth * sin(angle - .pi / 2)
+        )
+
+        ctx.saveGState()
+        defer { ctx.restoreGState() }
+        ctx.setStrokeColor(color.cgColor)
+        ctx.setFillColor(color.cgColor)
+        ctx.setLineWidth(lineWidth)
+        ctx.setLineCap(.round)
+        ctx.setLineJoin(.round)
+
+        ctx.beginPath()
+        ctx.move(to: start)
+        ctx.addLine(to: shaftEnd)
+        ctx.strokePath()
+
+        ctx.beginPath()
+        ctx.move(to: end)
+        ctx.addLine(to: left)
+        ctx.addLine(to: right)
+        ctx.closePath()
+        ctx.fillPath()
+    }
+}

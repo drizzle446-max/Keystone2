@@ -24,9 +24,7 @@ final class BreakDisplayTimer: ObservableObject {
 
     private func startPeriodic() {
         periodicTimer?.invalidate()
-        periodicTimer = Timer.scheduledTimer(withTimeInterval: periodInterval, repeats: true) { [weak self] _ in
-            self?.showPeriodicBreak()
-        }
+        stopCurrentDisplay()
     }
 
     private func showPeriodicBreak() {

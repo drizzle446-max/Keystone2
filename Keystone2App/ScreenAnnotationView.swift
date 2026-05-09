@@ -160,13 +160,7 @@ final class ScreenAnnotationView: NSView {
         case .arrow:
             guard ann.points.count >= 2 else { return }
             let start = ann.points[0], end = ann.points[1]
-            ann.color.setStroke()
-            let line = NSBezierPath()
-            line.move(to: start); line.line(to: end)
-            line.lineWidth = ann.lineWidth
-            line.lineCapStyle = .round
-            line.stroke()
-            drawArrowHead(from: start, to: end, lineWidth: ann.lineWidth, color: ann.color)
+            AnnotationDrawing.drawSolidArrow(from: start, to: end, color: ann.color, lineWidth: ann.lineWidth)
 
         case .rectangle:
             let path = NSBezierPath(rect: ann.rect)
@@ -188,28 +182,6 @@ final class ScreenAnnotationView: NSView {
         case .text:
             break
         }
-    }
-
-    private func drawArrowHead(from start: CGPoint, to end: CGPoint,
-                               lineWidth: CGFloat, color: NSColor) {
-        let dx = end.x - start.x, dy = end.y - start.y
-        guard sqrt(dx * dx + dy * dy) > 1 else { return }
-        let angle = atan2(dy, dx)
-        let headLen = max(lineWidth * 4, 14)
-        let spread: CGFloat = .pi / 6
-
-        let p1 = CGPoint(x: end.x - headLen * cos(angle - spread),
-                         y: end.y - headLen * sin(angle - spread))
-        let p2 = CGPoint(x: end.x - headLen * cos(angle + spread),
-                         y: end.y - headLen * sin(angle + spread))
-
-        let path = NSBezierPath()
-        path.move(to: end); path.line(to: p1)
-        path.move(to: end); path.line(to: p2)
-        path.lineWidth = lineWidth
-        path.lineCapStyle = .round
-        color.setStroke()
-        path.stroke()
     }
 
     private func clampedPoint(_ point: CGPoint) -> CGPoint {
